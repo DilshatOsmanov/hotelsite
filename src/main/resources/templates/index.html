@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kanzler Hotel</title>
+    <link rel="stylesheet" href="css/style.min.css">
+</head>
+<body>
+    
+    <header class="header">
+        <div class="container">
+            <div class="header__wrapper">
+                <a href="/" class="header__logo">
+                    <img src="images/logo.png" alt="logo">
+                </a>
+                <div class="header__menu-btn"><span></span></div>
+                <ul class="header__menu">
+                    <li class="header__menu-item active">
+                        <a href="/">
+                            Главная
+                        </a>
+                    </li>
+                    <li class="header__menu-item">
+                        <a href="/about">
+                            Об отеле
+                        </a>
+                    </li>
+                    <li class="header__menu-item">
+                        <a href="/rooms">
+                            Номера
+                        </a>
+                    </li>
+                    <li class="header__menu-item">
+                        <a href="/contacts">
+                            Контакты
+                        </a>
+                    </li>
+                </ul>
+                <a href="tel:+995593503636" class="header__btn">
+                    +995 593 50 36 36
+                </a>
+            </div>
+        </div>
+    </header>
+    
+    <section class="slider">
+        <div class="slider__btns-container">
+            <div class="slider__prev-arrow">
+                <svg xmlns="http://www.w3.org/2000/svg" width="7.174" height="12.934" viewBox="0 0 7.174 12.934"><defs><style>.a{fill:none;stroke:#fff;stroke-linecap:round;}</style></defs><g transform="translate(0.707 12.227) rotate(-135)"><line class="a" y2="8.146"/><line class="a" x1="8.146" transform="translate(0 8.146)"/></g></svg>
+            </div>
+            <div class="slider__next-arrow">
+                <svg xmlns="http://www.w3.org/2000/svg" width="7.174" height="12.934" viewBox="0 0 7.174 12.934"><defs><style>.a{fill:none;stroke:#fff;stroke-linecap:round;}</style></defs><g transform="translate(0.707 12.227) rotate(-135)"><line class="a" y2="8.146"/><line class="a" x1="8.146" transform="translate(0 8.146)"/></g></svg>
+            </div>
+        </div>
+        <div class="slider__wrapper">
+            <div class="slider__item">
+                <div class="slider__item-wrapper">
+                    <div class="container">
+                        <h2 class="slider__title">
+                            Премиум-отель в сердце Батуми!
+                        </h2>
+                        <p class="slider__text">
+                            <span>Европейские стандарты – гарантия приятного и комфортного отдыха!</span>
+                        </p>
+                        <a href="/rooms" class="link">
+                            Перейти к  номерам
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="slider__item">
+                <div class="slider__item-wrapper">
+                    <div class="container">
+                        <h2 class="slider__title">
+                            Премиум-отель в сердце Батуми!
+                        </h2>
+                        <p class="slider__text">
+                            <span>Европейские стандарты – гарантия приятного и комфортного отдыха!</span>
+                        </p>
+                        <a href="/rooms" class="link">
+                            Перейти к  номерам
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="slider__item">
+                <div class="slider__item-wrapper">
+                    <div class="container">
+                        <h2 class="slider__title">
+                            Премиум-отель в сердце Батуми!
+                        </h2>
+                        <p class="slider__text">
+                            <span>Европейские стандарты – гарантия приятного и комфортного отдыха!</span>
+                        </p>
+                        <a href="/rooms" class="link">
+                            Перейти к  номерам
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="discounts">
+        <div class="container">
+            <div class="discounts__slider">
+                <div class="discounts__item">
+                    <div class="discounts__item-info">
+                        <h3 class="discounts__item-title">
+                            -50% на раннее бронирование номера
+                        </h3>
+                        <p class="discounts__item-text">
+                            Акция действует с 1 по 30 февраля
+                        </p>
+                    </div>
+                    <div class="discounts__item-btns">
+                        <button class="discounts__item-btn btn">
+                            Забронировать
+                        </button>
+                        <a href="#" class="discounts__item-link link">
+                            Подробнее
+                        </a>
+                    </div>
+                </div>
+                <div class="discounts__item">
+                    <div class="discounts__item-info">
+                        <h3 class="discounts__item-title">
+                            -50% на раннее бронирование номера
+                        </h3>
+                        <p class="discounts__item-text">
+                            Акция действует с 1 по 30 февраля
+                        </p>
+                    </div>
+                    <div class="discounts__item-btns">
+                        <button class="discounts__item-btn btn">
+                            Забронировать
+                        </button>
+                        <a href="#" class="discounts__item-link link">
+                            Подробнее
+                        </a>
+                    </div>
+                </div>
+                <div class="discounts__item">
+                    <div class="discounts__item-info">
+                        <h3 class="discounts__item-title">
+                            -50% на раннее бронирование номера
+                        </h3>
+                        <p class="discounts__item-text">
+                            Акция действует с 1 по 30 февраля
+                        </p>
+                    </div>
+                    <div class="discounts__item-btns">
+                        <button class="discounts__item-btn btn">
+                            Забронировать
+                        </button>
+                        <a href="#" class="discounts__item-link link">
+                            Подробнее
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="discounts__close">
+                Скрыть акционные предложения
+            </div>
+        </div>
+    </section>
+
+    <section class="rooms">
+        <div class="container">
+            <div class="top-content">
+                <div class="top-content__info">
+                    <h3 class="top-content__title">
+                        Доступные номера
+                    </h3>
+                </div>
+            </div>
+            <div class="rooms__items">
+                <div class="rooms__item" th:each="room : ${rooms}">
+                    <div class="rooms__item-slider-wrapper">
+                        <div class="rooms__item-slider">
+                            <img th:if="${room.previewImageId}" class="rooms__item-img" th:src="'/img/' + ${room.previewImageId}" alt="room-image">
+                            <img th:unless="${room.previewImageId}" class="rooms__item-img" src="'../../images/slider-photo.jpg" alt="room-image">
+                        </div>
+                    </div>
+                    <div class="rooms__item-inner">
+                        <div class="rooms__item-info">
+                            <div th:text="'$' + ${room.price} + '/сутки'" class="rooms__item-price" />
+                            <div class="rooms__item-rating">
+                                <div th:each="i: ${#numbers.sequence(1, 5)}">
+                                    <span th:if="${i <= room.rating}" class="active">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="12.623" height="12.097" viewBox="0 0 12.623 12.097"><defs><style>.a{fill:#eee;}</style></defs><path class="a" d="M12.59,5.063a.67.67,0,0,0-.578-.461L8.369,4.271,6.929.9A.671.671,0,0,0,5.695.9L4.254,4.271.61,4.6A.672.672,0,0,0,.229,5.776L2.983,8.191l-.812,3.577a.67.67,0,0,0,1,.725l3.143-1.878,3.142,1.878a.671.671,0,0,0,1-.725L9.639,8.191l2.754-2.415A.671.671,0,0,0,12.59,5.063Zm0,0" transform="translate(0 -0.492)"/></svg>
+                                    </span>
+                                    <span th:if="${i > room.rating}">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="12.623" height="12.097" viewBox="0 0 12.623 12.097"><defs><style>.a{fill:#eee;}</style></defs><path class="a" d="M12.59,5.063a.67.67,0,0,0-.578-.461L8.369,4.271,6.929.9A.671.671,0,0,0,5.695.9L4.254,4.271.61,4.6A.672.672,0,0,0,.229,5.776L2.983,8.191l-.812,3.577a.67.67,0,0,0,1,.725l3.143-1.878,3.142,1.878a.671.671,0,0,0,1-.725L9.639,8.191l2.754-2.415A.671.671,0,0,0,12.59,5.063Zm0,0" transform="translate(0 -0.492)"/></svg>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <h4 th:text="${room.title}" class="rooms__item-title" />
+                        <p th:text="${room.description}"  class="rooms__item-text" />
+                        <div class="rooms__item-btns">
+                            <a href="#" class="rooms__item-btn btn">
+                                Забронировать
+                            </a>
+                            <a th:href="'/rooms/' + ${room.id}" class="rooms__item-link link">
+                                Подробнее
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <a href="/rooms" class="loadmore">
+                Перейти ко всем номерам
+            </a>
+        </div>
+    </section>
+
+    <section class="amenities">
+        <div class="container">
+            <h3 class="amenities__title">
+                Все для вашего удобства
+            </h3>
+            <div class="amenities__items">
+                <div class="amenities__item">
+                    <span class="amenities__img">
+                        <img src="./images/wifi.svg" alt="service-icon">
+                    </span>
+                    <h5 class="amenities__item-title">
+                        Бесплатный Wi-Fi
+                    </h5>
+                    <p class="amenities__item-text">
+                        Для вашего удобства на всей территории нашего отеля действует бесплатное подключение к Wi-Fi.
+                    </p>
+                </div>
+                <div class="amenities__item">
+                    <span class="amenities__img">
+                        <img src="./images/car.svg" alt="service-icon">
+                    </span>
+                    <h5 class="amenities__item-title">
+                        Бесплатный трансфер
+                    </h5>
+                    <p class="amenities__item-text">
+                        Привезем вас из аэропорта и отвезем вас обратно к вашему вылету совершенно бесплатно
+                    </p>
+                </div>
+                <div class="amenities__item">
+                    <span class="amenities__img">
+                        <img src="./images/parking.svg" alt="service-icon">
+                    </span>
+                    <h5 class="amenities__item-title">
+                        Бесплатная парковка
+                    </h5>
+                    <p class="amenities__item-text">
+                        Для наших гостей-автолюбителей доступ к парковке бесплатный
+                    </p>
+                </div>
+                <div class="amenities__item">
+                    <span class="amenities__img">
+                        <img src="./images/tea-pot.svg" alt="service-icon">
+                    </span>
+                    <h5 class="amenities__item-title">
+                        Кофеварка/Чайник во всех номерах
+                    </h5>
+                    <p class="amenities__item-text">
+                        Подробнее
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section> 
+
+    <section class="banner">
+        <div class="banner__inner">
+            <div class="container">
+                <h2 class="banner__title">
+                    Высокий уровень сервиса и комфорта
+                </h2>
+                <div class="banner__lines">
+                    <span class="banner__square"></span>
+                </div>
+                <p class="banner__text">
+                    Узнайте подробнее о нашем отеле
+                </p>
+                <a href="/about" class="link">
+                    О нас
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section class="blog">
+        <div class="container">
+            <div class="top-content">
+                <div class="top-content__info">
+                    <h3 class="top-content__title">
+                        Блог
+                    </h3>
+                </div>
+            </div>
+            <div class="blog__items">
+                <div class="blog__item" th:each="item : ${news}">
+
+                    <div th:if="${item.previewImageId}" class="blog__item-img" th:style="'background-image: url(/img/' + ${item.previewImageId} + ')'">
+                        <a href="#" class="blog__item-category" th:text="${item.category == 'novelty' ? 'Новости': 'Акции' }" />
+                    </div>
+                    <div th:unless="${item.previewImageId}" class="blog__item-img" style="background-image: url('./images/slider-photo.jpg')">
+                        <a href="#" class="blog__item-category" th:text="${item.category == 'novelty' ? 'Новости': 'Акции' }" />
+                    </div>
+
+                    <div class="blog__item-date">
+                        25 мая 2020
+                    </div>
+                    <h4 class="blog__item-title" th:text="${item.title}" />
+                    <a th:href="'/blog/' + ${item.id}" class="blog__item-link">
+                        Подробнее
+                    </a>
+                </div>
+            </div>
+            <a href="/news" class="show-more">
+                Перейти во всем записям
+            </a>
+        </div>
+    </section>
+
+    <section class="services">
+        <div class="container">
+            <div class="top-content">
+                <div class="top-content__info">
+                    <h3 class="top-content__title">
+                        Дополнительные услуги
+                    </h3>
+                </div>
+            </div>
+            <div class="services__items">
+                <div class="services__item">
+                    <div class="services__item-inner">
+                        <div class="services__item-info">
+                            <img src="./images/spa.svg" alt="service icon"> 
+                            <h4 class="services__item-title">
+                                SPA
+                            </h4>
+                        </div>
+                        <p class="services__item-text">
+                            Сайт рыбатекст поможет дизайнеру, верстальщику, вебмастеру сгенерировать несколько абзацев более менее осмысленного текста
+                        </p>
+                    </div>
+                </div>
+                <div class="services__item">
+                    <div class="services__item-inner">
+                        <div class="services__item-info">
+                            <img src="./images/spa.svg" alt="service icon"> 
+                            <h4 class="services__item-title">
+                                SPA
+                            </h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="services__item">
+                    <div class="services__item-inner">
+                        <div class="services__item-info">
+                            <img src="./images/spa.svg" alt="service icon"> 
+                            <h4 class="services__item-title">
+                                SPA
+                            </h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="services__item">
+                    <div class="services__item-inner">
+                        <div class="services__item-info">
+                            <img src="./images/spa.svg" alt="service icon"> 
+                            <h4 class="services__item-title">
+                                SPA
+                            </h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="services__item">
+                    <div class="services__item-inner">
+                        <div class="services__item-info">
+                            <img src="./images/spa.svg" alt="service icon"> 
+                            <h4 class="services__item-title">
+                                SPA
+                            </h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="feedback">
+        <div class="feedback__inner">
+            <div class="container">
+                <div class="feedback__wrapper">
+                    <div class="feedback__info">
+                        <h4 class="feedback__title">
+                            Подпишитесь на рассылку
+                        </h4>
+                        <p class="feedback__text">
+                            И получайте самые выгодные предложения первыми!
+                        </p>
+                    </div>
+                    <div class="feedback__btns">
+                        <input type="email" class="feedback__input" placeholder="Ваш e-mail">
+                        <button class="feedback__btn btn">
+                            Подписаться
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__inner">
+                <div class="footer__nav-inner">
+                    <a href="/" class="footer__logo">
+                        <img src="images/logo.png" alt="logo">
+                    </a>
+                    <nav class="footer__nav">
+                        <div class="footer__nav-item">
+                            <h5 class="footer__nav-title">
+                                Отель
+                            </h5>
+                            <div class="footer__nav-links">
+                                <a href="/about" class="footer__nav-link">
+                                    Об отеле
+                                </a>
+                                <a href="/rooms" class="footer__nav-link">
+                                    Доступные номера
+                                </a>
+                                <a href="/news" class="footer__nav-link">
+                                    Дополнительные услуги
+                                </a>
+                                <a href="/news" class="footer__nav-link">
+                                    Блог
+                                </a>
+                                <a href="/news" class="footer__nav-link">
+                                    Новости и акции
+                                </a>
+                                <a href="/contacts" class="footer__nav-link">
+                                    Местоположение
+                                </a>
+                                <a href="/contacts" class="footer__nav-link">
+                                    Контакты
+                                </a>
+                            </div>
+                        </div>
+                        <div class="footer__nav-item">
+                            <h5 class="footer__nav-title">
+                                Бронирование
+                            </h5>
+                            <div class="footer__nav-links">
+                                <a href="/contacts" class="footer__nav-link">
+                                    Условия бронирования
+                                </a>
+                                <a href="/contacts" class="footer__nav-link">
+                                    Отмена бронирования
+                                </a>
+                                <a href="/contacts" class="footer__nav-link">
+                                    Помощь
+                                </a>
+                            </div>
+                        </div>
+                        <div class="footer__nav-item">
+                            <h5 class="footer__nav-title">
+                                Сотрудничество
+                            </h5>
+                            <div class="footer__nav-links">
+                                <a href="/contacts" class="footer__nav-link">
+                                    Для партнеров
+                                </a>
+                            </div>
+                        </div>
+                    </nav>
+                </div>
+                <div class="footer__contact">
+                    <h5 class="footer__nav-title">
+                        Контакты
+                    </h5>
+                    <div class="footer__social-networks">
+                        <div class="footer__social-networks-items">
+                            <a href="#" class="footer__social-networks-item">
+                                <img src="./images/instagram.svg" alt="icon">
+                            </a>
+                            <a href="#" class="footer__social-networks-item">
+                                <img src="./images/facebook.svg" alt="icon">
+                            </a>
+                            <a href="#" class="footer__social-networks-item">
+                                <img src="./images/youtube.svg" alt="icon">
+                            </a>
+                        </div>
+                    </div>
+                    <a href="tel:+995593503636" class="footer__nav-link">+995 593 50 36 36</a>
+                    <a href="mailto:kanzlercommercial@gmail.com" class="footer__nav-link">kanzlercommercial@gmail.com</a>
+                </div>
+            </div>
+            <div class="footer__copyright">
+                Kanzler Hotel Batumi 2021 (c)
+            </div>
+        </div>
+    </footer>
+
+
+
+    <script src="js/main.min.js"></script>
+</body>
+</html>

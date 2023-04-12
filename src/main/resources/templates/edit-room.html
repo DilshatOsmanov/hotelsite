@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Kanzler Hotel - Admin Panel</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <style>
+        .my-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            grid-gap: 30px;
+            margin-bottom: 100px;
+        }
+        .card-img-top {
+            height: 300px;
+            object-fit: cover;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h3 class="mt-5 mb-4">Редактировать номер</h3>
+    <form class="mb-5" method="post" th:action="'/admin/room/edit/' + ${room.id}" enctype="multipart/form-data">
+        <div class="form-group mb-2">
+            <label class="mb-1">Название комнаты:</label>
+            <input class="form-control" th:value="${room.title}" type="text" name="title"/>
+        </div>
+
+        <div class="form-group mb-2">
+            <label class="mb-1">Подзаголовок:</label>
+            <input class="form-control" th:value="${room.subtitle}" type="text" name="subtitle"/>
+        </div>
+
+        <div class="form-group mb-2">
+            <label class="mb-1">Описание комнаты:</label>
+            <textarea class="form-control" th:text="${room.description}" name="description"/>
+        </div>
+
+        <div class="form-group mb-2">
+            <label class="mb-1">Цена:</label>
+            <input class="form-control" th:value="${room.price}" type="number" name="price"/>
+        </div>
+
+        <div class="form-group mb-2">
+            <label class="mb-1">Размер:</label>
+            <input class="form-control" th:value="${room.size}" type="number" name="size"/>
+        </div>
+
+        <div class="form-group mb-2">
+            <label class="mb-1">Рейтинг:</label>
+            <input class="form-control" th:value="${room.rating}" type="number" min="1" max="5" name="rating"/>
+        </div>
+
+        <div class="form-group mb-2">
+            <label class="mb-1">Катагория:</label>
+            <select class="form-control" name="category">
+                <option value="double" th:selected="${room.category == 'double'}">Двухместные</option>
+                <option value="triple" th:selected="${room.category == 'triple'}">Трехместные</option>
+                <option value="lux" th:selected="${room.category == 'lux'}">Люкс</option>
+                <option value="delux" th:selected="${room.category == 'delux'}">Делюкс</option>
+            </select>
+        </div>
+
+        <div class="form-group mb-2">
+            <label class="mb-1">Курение (разрешено/запрещено):</label>
+            <select class="form-control" name="isSmoke">
+                <option value="1" th:selected="${room.isSmoke == 1}">Разрешено</option>
+                <option value="0" th:selected="${room.isSmoke == 0}">Запрещено</option>
+            </select>
+        </div>
+
+        <div class="form-group mb-2">
+            <label class="mb-1">Парковка (разрешено/запрещено):</label>
+            <select class="form-control" name="isParking">
+                <option value="1" th:selected="${room.isParking == 1}">Разрешено</option>
+                <option value="0" th:selected="${room.isParking == 0}">Запрещено</option>
+            </select>
+        </div>
+
+        <input class="btn btn-primary" type="submit" value="Сохранить"/>
+    </form>
+
+    <div class="my-grid mb-3">
+        <form class="card" style="width: 100%;" th:each="image, status : ${images}" th:action="'/admin/image/delete/' + ${image.id}" method="post">
+            <input type="hidden" name="id" th:value="${image.id}" />
+            <input type="hidden" name="roomId" th:value="${room.id}" />
+            <img class="card-img-top" th:src="'/img/' + ${image.id}" alt="Card image cap">
+            <div class="card-body">
+                <h5 class="card-title" th:text="'Картинка №' + ${status.count}" />
+                <button class="btn btn-primary" type="submit">Удалить</button>
+            </div>
+        </form>
+    </div>
+
+    <form class="d-block mb-5" style="width: 100%;" action="/admin/image/add" method="post" enctype="multipart/form-data">
+        <input type="hidden" name="roomId" th:value="${room.id}" />
+        <input class="form-control mb-2" type="file" name="newImage" accept="image/png, image/gif, image/jpeg" required />
+        <button class="btn btn-primary" type="submit">Добавить фото</button>
+    </form>
+</div>
+</body>
+</html>

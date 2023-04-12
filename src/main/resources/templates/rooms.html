@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kanzler Hotel</title>
+    <link rel="stylesheet" href="css/style.min.css">
+    <style>
+        .d-none {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+    <header class="header">
+        <div class="container">
+            <div class="header__wrapper">
+                <a href="/" class="header__logo">
+                    <img src="images/logo.png" alt="logo">
+                </a>
+                <div class="header__menu-btn"><span></span></div>
+                <ul class="header__menu">
+                    <li class="header__menu-item">
+                        <a href="/">
+                            Главная
+                        </a>
+                    </li>
+                    <li class="header__menu-item">
+                        <a href="/about">
+                            Об отеле
+                        </a>
+                    </li>
+                    <li class="header__menu-item active">
+                        <a href="/rooms">
+                            Номера
+                        </a>
+                    </li>
+                    <li class="header__menu-item">
+                        <a href="/contacts">
+                            Контакты
+                        </a>
+                    </li>
+                </ul>
+                <a href="tel:+995593503636" class="header__btn">
+                    +995 593 50 36 36
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <section class="rooms-page">
+        <div class="container">
+            <ul class="crumbs">
+                <li class="crumbs__item">
+                    <a href="/">
+                        Главнaя 
+                    </a>
+                </li>
+                <li class="crumbs__item current">
+                    Доступные номера
+                </li>
+            </ul>
+            <h3 class="rooms-page__title big-title">
+                Номера
+            </h3>
+            <p class="rooms-page__text">
+                Выберите даты размещения и количество гостей
+            </p>
+        </div>
+    </section>
+
+    <section class="rooms">
+        <div class="container">
+            <form th:action="@{/rooms}">
+                <div class="rooms__sort">
+                    <span>Сортировать по:</span>
+
+                    <select name="sorting" onchange="this.form.submit()">
+                        <option value="popularity" th:selected="${sorting == 'popularity'}">популярности</option>
+                        <option value="price_asc" th:selected="${sorting == 'price_asc'}">по возрастанию цены</option>
+                        <option value="price_desc" th:selected="${sorting == 'price_desc'}">по убыванию цены</option>
+                    </select>
+                </div>
+
+                <ul class="rooms__class-list">
+                    <input class="d-none" onchange="this.form.submit()" id="double" type="radio" name="category" value="double" th:checked="${category == 'double'}">
+                    <input class="d-none" onchange="this.form.submit()" id="triple" type="radio" name="category" value="triple" th:checked="${category == 'triple'}">
+                    <input class="d-none" onchange="this.form.submit()" id="lux" type="radio" name="category" value="lux" th:checked="${category == 'lux'}">
+                    <input class="d-none" onchange="this.form.submit()" id="delux" type="radio" name="category" value="delux" th:checked="${category == 'delux'}">
+
+                    <label for="double" th:class="'rooms__class-item '+${category == 'double' ? 'active' : ''}">
+                        Двухместные
+                    </label>
+                    <label for="triple" th:class="'rooms__class-item '+${category == 'triple' ? 'active' : ''}">
+                        Трехместные
+                    </label>
+                    <label for="lux" th:class="'rooms__class-item '+${category == 'lux' ? 'active' : ''}">
+                        Люкс
+                    </label>
+                    <label for="delux" th:class="'rooms__class-item '+${category == 'delux' ? 'active' : ''}">
+                        Делюкс
+                    </label>
+                </ul>
+            </form>
+
+            <div class="rooms__items">
+                <div class="rooms__item" th:each="room : ${rooms}">
+                    <div class="rooms__item-slider-wrapper">
+                        <div class="rooms__item-slider">
+                            <img th:if="${room.previewImageId}" class="rooms__item-img" th:src="'/img/' + ${room.previewImageId}" alt="room-image">
+                            <img th:unless="${room.previewImageId}" class="rooms__item-img" src="'../../images/slider-photo.jpg" alt="room-image">
+                        </div>
+                    </div>
+                    <div class="rooms__item-inner">
+                        <div class="rooms__item-info">
+                            <div th:text="'$' + ${room.price} + '/сутки'" class="rooms__item-price" />
+                            <div class="rooms__item-rating">
+                                <div th:each="i: ${#numbers.sequence(1, 5)}">
+                                    <span th:if="${i <= room.rating}" class="active">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="12.623" height="12.097" viewBox="0 0 12.623 12.097"><defs><style>.a{fill:#eee;}</style></defs><path class="a" d="M12.59,5.063a.67.67,0,0,0-.578-.461L8.369,4.271,6.929.9A.671.671,0,0,0,5.695.9L4.254,4.271.61,4.6A.672.672,0,0,0,.229,5.776L2.983,8.191l-.812,3.577a.67.67,0,0,0,1,.725l3.143-1.878,3.142,1.878a.671.671,0,0,0,1-.725L9.639,8.191l2.754-2.415A.671.671,0,0,0,12.59,5.063Zm0,0" transform="translate(0 -0.492)"/></svg>
+                                    </span>
+                                    <span th:if="${i > room.rating}">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="12.623" height="12.097" viewBox="0 0 12.623 12.097"><defs><style>.a{fill:#eee;}</style></defs><path class="a" d="M12.59,5.063a.67.67,0,0,0-.578-.461L8.369,4.271,6.929.9A.671.671,0,0,0,5.695.9L4.254,4.271.61,4.6A.672.672,0,0,0,.229,5.776L2.983,8.191l-.812,3.577a.67.67,0,0,0,1,.725l3.143-1.878,3.142,1.878a.671.671,0,0,0,1-.725L9.639,8.191l2.754-2.415A.671.671,0,0,0,12.59,5.063Zm0,0" transform="translate(0 -0.492)"/></svg>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <h4 th:text="${room.title}" class="rooms__item-title" />
+                        <p th:text="${room.description}"  class="rooms__item-text" />
+                        <div class="rooms__item-btns">
+                            <a href="#" class="rooms__item-btn btn">
+                                Забронировать
+                            </a>
+                            <a th:href="'/rooms/' + ${room.id}" class="rooms__item-link link">
+                                Подробнее
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="feedback feedback--about">
+        <div class="feedback__inner">
+            <div class="container">
+                <div class="feedback__wrapper">
+                    <div class="feedback__info">
+                        <h4 class="feedback__title">
+                            Забронируйте номер прямо сейчас
+                        </h4>
+                        <p class="feedback__text feedback--about__text">
+                            Выберите даты вашей поездки <br> и мы подберем самые лучшие варианты размещения!
+                        </p>
+                    </div>
+                    <div class="feedback--about__btns">
+                        <button class="feedback--about__btn btn">
+                            Забронировать
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__inner">
+                <div class="footer__nav-inner">
+                    <a href="/" class="footer__logo">
+                        <img src="images/logo.png" alt="logo">
+                    </a>
+                    <nav class="footer__nav">
+                        <div class="footer__nav-item">
+                            <h5 class="footer__nav-title">
+                                Отель
+                            </h5>
+                            <div class="footer__nav-links">
+                                <a href="/about" class="footer__nav-link">
+                                    Об отеле
+                                </a>
+                                <a href="/rooms" class="footer__nav-link">
+                                    Доступные номера
+                                </a>
+                                <a href="/news" class="footer__nav-link">
+                                    Дополнительные услуги
+                                </a>
+                                <a href="/news" class="footer__nav-link">
+                                    Блог
+                                </a>
+                                <a href="/news" class="footer__nav-link">
+                                    Новости и акции
+                                </a>
+                                <a href="/contacts" class="footer__nav-link">
+                                    Местоположение
+                                </a>
+                                <a href="/contacts" class="footer__nav-link">
+                                    Контакты
+                                </a>
+                            </div>
+                        </div>
+                        <div class="footer__nav-item">
+                            <h5 class="footer__nav-title">
+                                Бронирование
+                            </h5>
+                            <div class="footer__nav-links">
+                                <a href="/contacts" class="footer__nav-link">
+                                    Условия бронирования
+                                </a>
+                                <a href="/contacts" class="footer__nav-link">
+                                    Отмена бронирования
+                                </a>
+                                <a href="/contacts" class="footer__nav-link">
+                                    Помощь
+                                </a>
+                            </div>
+                        </div>
+                        <div class="footer__nav-item">
+                            <h5 class="footer__nav-title">
+                                Сотрудничество
+                            </h5>
+                            <div class="footer__nav-links">
+                                <a href="/contacts" class="footer__nav-link">
+                                    Для партнеров
+                                </a>
+                            </div>
+                        </div>
+                    </nav>
+                </div>
+                <div class="footer__contact">
+                    <h5 class="footer__nav-title">
+                        Контакты
+                    </h5>
+                    <div class="footer__social-networks">
+                        <div class="footer__social-networks-items">
+                            <a href="#" class="footer__social-networks-item">
+                                <img src="./images/instagram.svg" alt="icon">
+                            </a>
+                            <a href="#" class="footer__social-networks-item">
+                                <img src="./images/facebook.svg" alt="icon">
+                            </a>
+                            <a href="#" class="footer__social-networks-item">
+                                <img src="./images/youtube.svg" alt="icon">
+                            </a>
+                        </div>
+                    </div>
+                    <a href="tel:+995593503636" class="footer__nav-link">+995 593 50 36 36</a>
+                    <a href="mailto:kanzlercommercial@gmail.com" class="footer__nav-link">kanzlercommercial@gmail.com</a>
+                </div>
+            </div>
+            <div class="footer__copyright">
+                Kanzler Hotel Batumi 2021 (c)
+            </div>
+        </div>
+    </footer>
+
+
+
+    <script src="js/main.min.js"></script>
+</body>
+</html>

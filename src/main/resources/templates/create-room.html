@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Kanzler Hotel - Admin Panel</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+</head>
+<body>
+    <div class="container">
+        <h3 class="mt-5 mb-4">Создать новый номер</h3>
+        <form class="mb-5" action="/admin/room/create" method="post" enctype="multipart/form-data">
+            <div class="form-group mb-2">
+                <label class="mb-1">Название комнаты:</label>
+                <input class="form-control" type="text" name="title" required  />
+            </div>
+
+            <div class="form-group mb-2">
+                <label class="mb-1">Подзаголовок:</label>
+                <input class="form-control" type="text" name="subtitle" required />
+            </div>
+
+            <div class="form-group mb-2">
+                <label class="mb-1">Описание комнаты:</label>
+                <textarea class="form-control" name="description" required ></textarea>
+            </div>
+
+            <div class="form-group mb-2">
+                <label class="mb-1">Цена:</label>
+                <input class="form-control" type="number" name="price" required />
+            </div>
+
+            <div class="form-group mb-2">
+                <label class="mb-1">Размер:</label>
+                <input class="form-control" type="number" name="size" required />
+            </div>
+
+            <div class="form-group mb-2">
+                <label class="mb-1">Рейтинг:</label>
+                <input class="form-control" type="number" name="rating" min="1" max="5" required />
+            </div>
+
+            <div class="form-group mb-2">
+                <label class="mb-1">Катагория:</label>
+                <select class="form-control" name="category">
+                    <option value="double">Двухместные</option>
+                    <option value="triple">Трехместные</option>
+                    <option value="lux">Люкс</option>
+                    <option value="delux">Делюкс</option>
+                </select>
+            </div>
+
+            <div class="form-group mb-2">
+                <label class="mb-1">Курение (разрешено/запрещено):</label>
+                <select class="form-control" name="isSmoke">
+                    <option value="1">Разрешено</option>
+                    <option value="0">Запрещено</option>
+                </select>
+            </div>
+
+            <div class="form-group mb-2">
+                <label class="mb-1">Парковка (разрешено/запрещено):</label>
+                <select class="form-control" name="isParking">
+                    <option value="1">Разрешено</option>
+                    <option value="0">Запрещено</option>
+                </select>
+            </div>
+
+            <div class="form-group mb-2">
+                <label class="mb-1">Первая фотография:</label>
+                <input class="form-control" type="file" name="file1" accept="image/png, image/gif, image/jpeg" required />
+            </div>
+
+            <div class="form-group mb-2">
+                <label class="mb-1">Вторая фотография:</label>
+                <input class="form-control" type="file" name="file2" accept="image/png, image/gif, image/jpeg" />
+            </div>
+
+            <div class="form-group mb-2">
+                <label class="mb-1">Третья фотография:</label>
+                <input class="form-control" type="file" name="file3" accept="image/png, image/gif, image/jpeg" />
+            </div>
+
+            <div class="form-group mb-2">
+                <label class="mb-1">Четвертая фотография:</label>
+                <input class="form-control" type="file" name="file4" accept="image/png, image/gif, image/jpeg" />
+            </div>
+
+            <div class="form-group mb-2">
+                <label class="mb-1">Пятая фотография:</label>
+                <input class="form-control" type="file" name="file5" accept="image/png, image/gif, image/jpeg" />
+            </div>
+
+            <div class="form-group mb-2">
+                <label class="mb-1">Шестая фотография:</label>
+                <input class="form-control" type="file" name="file6" accept="image/png, image/gif, image/jpeg" />
+            </div>
+
+            <input class="btn btn-primary" type="submit" value="Добавить комнату"/>
+        </form>
+    </div>
+</body>
+</html>

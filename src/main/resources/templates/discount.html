@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kanzler Hotel</title>
+    <link rel="stylesheet" href="../css/style.min.css">
+</head>
+<body>
+
+    <header class="header">
+        <div class="container">
+            <div class="header__wrapper">
+                <a href="/" class="header__logo">
+                    <img src="../images/logo.png" alt="logo">
+                </a>
+                <div class="header__menu-btn"><span></span></div>
+                <ul class="header__menu">
+                    <li class="header__menu-item">
+                        <a href="/">
+                            Главная
+                        </a>
+                    </li>
+                    <li class="header__menu-item">
+                        <a href="/about">
+                            Об отеле
+                        </a>
+                    </li>
+                    <li class="header__menu-item">
+                        <a href="/rooms">
+                            Номера
+                        </a>
+                    </li>
+                    <li class="header__menu-item">
+                        <a href="/contacts">
+                            Контакты
+                        </a>
+                    </li>
+                </ul>
+                <a href="tel:+995593503636" class="header__btn">
+                    +995 593 50 36 36
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <section class="discount" th:each="blog : ${blog}">
+        <div class="container">
+            <ul class="crumbs">
+                <li class="crumbs__item">
+                    <a href="/">
+                        Главнaя 
+                    </a>
+                </li>
+                <li class="crumbs__item current">
+                    <a href="/news">Новости и акции</a>
+                </li>
+                <li class="crumbs__item current" th:text="${blog.title}" />
+            </ul>
+            <div class="discount__top">
+                <div class="discount__category-inner">
+                    <div class="discount__category" th:text="${blog.category == 'novelty' ? 'Новости': 'Акции' }" />
+                </div>
+                <h3 class="discount__title big-title" th:text="${blog.title}" />
+                <p class="discount__text" th:text="${blog.subtitle}" />
+            </div>
+            <div class="discount__content">
+                <div class="discount__content-info">
+                     <div class="discount__content-img-slider">
+                        <div class="discount__content-img-slider-inner">
+                            <img class="discount__content-img" th:each="image : ${images}" th:src="'/img/' + ${image.id}">
+                        </div>
+                    </div>
+<!--                    <div class="discount__content-video">-->
+<!--                        <iframe width="560" height="315" src="https://www.youtube.com/embed/MEEDno12OfA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>-->
+<!--                    </div>-->
+                    <div class="discount__content-text">
+                        <p th:text="${blog.description}" />
+                    </div>
+                    <a href="#" class="discount__content-btn">
+                        Забронировать номер
+                    </a>
+                </div>
+                <div class="discount__content-recommendation">
+                    <h5 class="discount__recommendation-title">
+                        Рекомендуемое
+                    </h5>
+                    <div class="discount__recommendation-wrapper">
+                        <div class="blog__item">
+                            <div class="blog__item-img" style="background-image: url('./../images/slider-photo.jpg')">
+                                <a href="#" class="blog__item-category">
+                                    Новости отеля
+                                </a>
+                            </div>
+                            <div class="blog__item-date">
+                                25 мая 2020
+                            </div>
+                            <h4 class="blog__item-title">
+                                Двухместный номер с 1 кроватью или 2 отдельными кроватями
+                            </h4>
+                            <a href="#" class="blog__item-link">
+                                Подробнее
+                            </a>
+                        </div>
+                        <div class="blog__item">
+                            <div class="blog__item-img" style="background-image: url('../images/slider-photo.jpg')">
+                                <a href="#" class="blog__item-category">
+                                    Новости отеля
+                                </a>
+                            </div>
+                            <div class="blog__item-date">
+                                25 мая 2020
+                            </div>
+                            <h4 class="blog__item-title">
+                                Двухместный номер с 1 кроватью или 2 отдельными кроватями
+                            </h4>
+                            <a href="#" class="blog__item-link">
+                                Подробнее
+                            </a>
+                        </div>
+                        <div class="blog__item">
+                            <div class="blog__item-img" style="background-image: url('../images/slider-photo.jpg')">
+                                <a href="#" class="blog__item-category">
+                                    Новости отеля
+                                </a>
+                            </div>
+                            <div class="blog__item-date">
+                                25 мая 2020
+                            </div>
+                            <h4 class="blog__item-title">
+                                Двухместный номер с 1 кроватью или 2 отдельными кроватями
+                            </h4>
+                            <a href="#" class="blog__item-link">
+                                Подробнее
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="blog">
+        <div class="container">
+            <div class="top-content">
+                <div class="top-content__info">
+                    <h3 class="top-content__title">
+                        Другие новости
+                    </h3>
+                </div>
+            </div>
+            <div class="blog__items">
+                <div class="blog__item">
+                    <div class="blog__item-img" style="background-image: url('../images/slider-photo.jpg')">
+                        <a href="#" class="blog__item-category">
+                            Новости отеля
+                        </a>
+                    </div>
+                    <div class="blog__item-date">
+                        25 мая 2020
+                    </div>
+                    <h4 class="blog__item-title">
+                        Двухместный номер с 1 кроватью или 2 отдельными кроватями
+                    </h4>
+                    <a href="#" class="blog__item-link">
+                        Подробнее
+                    </a>
+                </div>
+                <div class="blog__item">
+                    <div class="blog__item-img" style="background-image: url('../images/slider-photo.jpg')">
+                        <a href="#" class="blog__item-category">
+                            Новости отеля
+                        </a>
+                    </div>
+                    <div class="blog__item-date">
+                        25 мая 2020
+                    </div>
+                    <h4 class="blog__item-title">
+                        Двухместный номер с 1 кроватью или 2 отдельными кроватями
+                    </h4>
+                    <a href="#" class="blog__item-link">
+                        Подробнее
+                    </a>
+                </div>
+                <div class="blog__item">
+                    <div class="blog__item-img" style="background-image: url('../images/slider-photo.jpg')">
+                        <a href="#" class="blog__item-category">
+                            Новости отеля
+                        </a>
+                    </div>
+                    <div class="blog__item-date">
+                        25 мая 2020
+                    </div>
+                    <h4 class="blog__item-title">
+                        Двухместный номер с 1 кроватью или 2 отдельными кроватями
+                    </h4>
+                    <a href="#" class="blog__item-link">
+                        Подробнее
+                    </a>
+                </div>
+            </div>
+            <a href="/news" class="show-more">
+                Перейти ко всем новостям
+            </a>
+        </div>
+    </section>
+
+    <section class="feedback">
+        <div class="feedback__inner">
+            <div class="container">
+                <div class="feedback__wrapper">
+                    <div class="feedback__info">
+                        <h4 class="feedback__title">
+                            Подпишитесь на рассылку
+                        </h4>
+                        <p class="feedback__text">
+                            И получайте самые выгодные предложения первыми!
+                        </p>
+                    </div>
+                    <div class="feedback__btns">
+                        <input type="email" class="feedback__input" placeholder="Ваш e-mail">
+                        <button class="feedback__btn btn">
+                            Забронировать
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__inner">
+                <div class="footer__nav-inner">
+                    <a href="/" class="footer__logo">
+                        <img src="../images/logo.png" alt="logo">
+                    </a>
+                    <nav class="footer__nav">
+                        <div class="footer__nav-item">
+                            <h5 class="footer__nav-title">
+                                Отель
+                            </h5>
+                            <div class="footer__nav-links">
+                                <a href="/about" class="footer__nav-link">
+                                    Об отеле
+                                </a>
+                                <a href="/rooms" class="footer__nav-link">
+                                    Доступные номера
+                                </a>
+                                <a href="/news" class="footer__nav-link">
+                                    Дополнительные услуги
+                                </a>
+                                <a href="/news" class="footer__nav-link">
+                                    Блог
+                                </a>
+                                <a href="/news" class="footer__nav-link">
+                                    Новости и акции
+                                </a>
+                                <a href="/contacts" class="footer__nav-link">
+                                    Местоположение
+                                </a>
+                                <a href="/contacts" class="footer__nav-link">
+                                    Контакты
+                                </a>
+                            </div>
+                        </div>
+                        <div class="footer__nav-item">
+                            <h5 class="footer__nav-title">
+                                Бронирование
+                            </h5>
+                            <div class="footer__nav-links">
+                                <a href="/contacts" class="footer__nav-link">
+                                    Условия бронирования
+                                </a>
+                                <a href="/contacts" class="footer__nav-link">
+                                    Отмена бронирования
+                                </a>
+                                <a href="/contacts" class="footer__nav-link">
+                                    Помощь
+                                </a>
+                            </div>
+                        </div>
+                        <div class="footer__nav-item">
+                            <h5 class="footer__nav-title">
+                                Сотрудничество
+                            </h5>
+                            <div class="footer__nav-links">
+                                <a href="/contacts" class="footer__nav-link">
+                                    Для партнеров
+                                </a>
+                            </div>
+                        </div>
+                    </nav>
+                </div>
+                <div class="footer__contact">
+                    <h5 class="footer__nav-title">
+                        Контакты
+                    </h5>
+                    <div class="footer__social-networks">
+                        <div class="footer__social-networks-items">
+                            <a href="#" class="footer__social-networks-item">
+                                <img src="../images/instagram.svg" alt="icon">
+                            </a>
+                            <a href="#" class="footer__social-networks-item">
+                                <img src="../images/facebook.svg" alt="icon">
+                            </a>
+                            <a href="#" class="footer__social-networks-item">
+                                <img src="../images/youtube.svg" alt="icon">
+                            </a>
+                        </div>
+                    </div>
+                    <a href="tel:+995593503636" class="footer__nav-link">+995 593 50 36 36</a>
+                    <a href="mailto:kanzlercommercial@gmail.com" class="footer__nav-link">kanzlercommercial@gmail.com</a>
+                </div>
+            </div>
+            <div class="footer__copyright">
+                Kanzler Hotel Batumi 2021 (c)
+            </div>
+        </div>
+    </footer>
+
+
+
+    <script src="../js/main.min.js"></script>
+</body>
+</html>
